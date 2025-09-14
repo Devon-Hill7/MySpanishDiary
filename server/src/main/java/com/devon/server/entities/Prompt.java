@@ -1,6 +1,6 @@
 package com.devon.server.entities;
 
-import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,7 +15,6 @@ public class Prompt {
 
     private String text;
 
-    private LocalDate date;
 
     public Prompt() {}
 
@@ -27,7 +26,4 @@ public class Prompt {
         return text;
     }
 
-    public LocalDate getDate() {
-        return date;
-    }
 }

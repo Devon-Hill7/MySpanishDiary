@@ -64,9 +64,21 @@
 			<scope>runtime</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.languagetool</groupId>
+			<artifactId>language-es</artifactId>
+			<version>6.4</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
+		<resources>
+        	<resource>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+        	</resource>
+    	</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

@@ -10,22 +10,14 @@ import com.devon.server.entities.*;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
-public class Controller {
+public class EntryController {
 
-    private final UserService userService;
-    private final PromptService promptService;
     private final EntryService entryService;
 
-    public Controller(UserService userService, PromptService promptService, EntryService entryService) {
-        this.userService = userService;
-        this.promptService = promptService;
+    public EntryController(EntryService entryService) {
         this.entryService = entryService;
     }
     
-    @GetMapping("/prompt")
-    public Prompt addUser() {
-       return promptService.getRandomPrompt();
-    }
 
     @GetMapping("/entries")
     public List<Entry> getEntries() {
