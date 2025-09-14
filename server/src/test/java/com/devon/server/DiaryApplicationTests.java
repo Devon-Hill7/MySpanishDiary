@@ -1,4 +1,4 @@
-package com.devon.Diary;
+package com.devon.server;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

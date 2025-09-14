@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.devon</groupId>
-	<artifactId>Diary</artifactId>
+	<artifactId>server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Diary</name>
+	<name>server</name>
 	<description>Spanish Diary Project</description>
 	<url/>
 	<licenses>

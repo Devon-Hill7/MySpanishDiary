@@ -1,4 +1,4 @@
-package com.devon.Diary;
+package com.devon.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
