@@ -34,6 +34,8 @@ public class EntryController {
         entryService.addEntry(entry);
     }
 
+    
+
 
 
 }
