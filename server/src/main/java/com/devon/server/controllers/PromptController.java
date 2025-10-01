@@ -3,7 +3,7 @@ package com.devon.server.controllers;
 import org.springframework.web.bind.annotation.RestController;
 import com.devon.server.services.PromptService;
 import org.springframework.web.bind.annotation.GetMapping;
-import com.devon.server.entities.Prompt;
+import com.devon.server.entities.Prompts;
 
 @RestController
 public class PromptController {
@@ -15,7 +15,7 @@ public class PromptController {
     }
 
     @GetMapping("/prompt")
-    public Prompt getPrompt() {
+    public Prompts getPrompt() {
         return promptService.getRandomPrompt();
     }
     

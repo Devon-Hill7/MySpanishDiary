@@ -1,8 +1,8 @@
 package com.devon.server.services;
 
 import com.devon.server.repositories.RuleRepository;
-import com.devon.server.entities.Rule;
-import com.devon.server.entities.GrammarLesson;
+import com.devon.server.entities.Rules;
+import com.devon.server.entities.Grammar_Lessons;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,11 +16,15 @@ public class RuleService {
         ruleRepository = repo;
     }
 
-    public Rule getRuleById(String id) {
+    public Rules getRuleById(String id) {
         return ruleRepository.findById(id).orElse(null);
     }
 
-    public GrammarLesson getLesson(Rule rule) {
-        return rule.getLesson();
+    public Grammar_Lessons getLesson(Rules rule) {
+        Grammar_Lessons lesson = rule.getLesson();
+        if(lesson == null) {
+            return null;
+        }
+        return lesson;
     }
 }

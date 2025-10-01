@@ -1,5 +1,7 @@
 package com.devon.server.entities;
 import java.time.LocalDate;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -8,29 +10,32 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Entry {
+public class Entries {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private Users user;
 
     @ManyToOne
     @JoinColumn(name = "prompt_id")
-    private Prompt prompt;
+    private Prompts prompt;
 
     private String text;
 
+    @Column(name = "entry_date")
     private LocalDate entryDate;
 
-    public Entry() {};
+    public Entries() {};
 
-    public Entry(User owner, Prompt chosenPrompt, LocalDate dateCreated) {
+    public Entries(Users owner, Prompts chosenPrompt, LocalDate dateCreated, String entryText) {
         this.user = owner;
         this.prompt = chosenPrompt;
         this.entryDate = dateCreated;
+        this.text = entryText;
     };
 
     public void setText(String text) {
@@ -40,10 +45,10 @@ public class Entry {
     public Long getId() {
         return id;
     }
-    public User getUser() {
+    public Users getUser() {
         return user;
     }
-    public Prompt getPrompt() {
+    public Prompts getPrompt() {
         return prompt;
     }
     public String getText() {

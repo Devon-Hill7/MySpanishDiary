@@ -6,8 +6,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.devon.server.services.*;
-import com.devon.server.entities.*;
 import org.springframework.web.bind.annotation.PathVariable;
+import com.devon.server.dtos.EntryRequest;
+import com.devon.server.entities.Entries;
 
 @RestController
 public class EntryController {
@@ -20,18 +21,18 @@ public class EntryController {
     
 
     @GetMapping("/entries")
-    public List<Entry> getEntries() {
+    public List<Entries> getEntries() {
        return entryService.getAllEntries();
     }
 
     @GetMapping("/entries/{id}")
-    public Entry getEntry(@PathVariable Long id) {
+    public Entries getEntry(@PathVariable Long id) {
          return entryService.getEntry(id);
     }
 
     @PostMapping("/entries")
-    public void addEntry(@RequestBody Entry entry) {
-        entryService.addEntry(entry);
+    public boolean addEntry(@RequestBody EntryRequest request) {
+        return entryService.addEntryFromRequest(request);
     }
 
     

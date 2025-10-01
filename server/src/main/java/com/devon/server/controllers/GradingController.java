@@ -16,8 +16,10 @@ import java.util.List;
 import org.languagetool.JLanguageTool;
 import org.languagetool.language.Spanish;
 import org.languagetool.rules.RuleMatch;
-import com.devon.server.entities.GrammarLesson;
+import com.devon.server.entities.Grammar_Lessons;
 import org.languagetool.rules.Rule;
+
+
 
 
 @RestController
@@ -32,13 +34,15 @@ public class GradingController {
     }
 
     @PostMapping("/grade")
-    public List<GrammarLesson> grade(@RequestBody GradingRequest request) throws Exception {
+    public List<Grammar_Lessons> grade(@RequestBody GradingRequest request) throws Exception {
         List<RuleMatch> errors = gradingService.gradeText(request.getText());
-        List<GrammarLesson> lessons = grammarLessonService.curateLessons(errors);
+        List<Grammar_Lessons> lessons = grammarLessonService.curateLessons(errors);
+        System.out.println("Lessons: " + lessons.toString());
         return lessons;
         
     }
 
+    /* 
     @GetMapping("/rules")
     public List<String> getRules() throws IOException {
         JLanguageTool langTool = new JLanguageTool(new Spanish());
@@ -48,5 +52,6 @@ public class GradingController {
         };
         return rules;
     }
+    */
 
 }
