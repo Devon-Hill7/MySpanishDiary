@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'SuperDream';
+    src: url('/fonts/Super Dream.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+    font-family: 'SuperDream', sans-serif;
+    font-size: 7rem;
+    color: #2B2B2B;
+    margin: 20px 0;
+    text-align: center;
+}
+
+
+

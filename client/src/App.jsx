@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import { Routes, Route } from 'react-router-dom'
@@ -10,7 +10,22 @@ import Entry from './pages/Entry'
 import Entries from './pages/Entries'
 import './App.css'
 
+//delete when done testing
+import api from './api/axios'
 function App() {
+
+  //delete when done testing
+  const [message, setMessage] = useState('')
+
+  //delete when done testing
+  useEffect(() => {
+    api.get(`${import.meta.env.VITE_API_BASE_URL}/prompt`)
+      .then(res => {
+        console.log("Backend response:", res.data);
+        setMessage(res.data)})
+      .catch(console.error);
+  }, []);
+
   return (
     <main className="App">
       <Routes>

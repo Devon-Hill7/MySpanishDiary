@@ -18,10 +18,11 @@ import org.languagetool.language.Spanish;
 import org.languagetool.rules.RuleMatch;
 import com.devon.server.entities.Grammar_Lessons;
 import org.languagetool.rules.Rule;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 
-
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 public class GradingController {
     

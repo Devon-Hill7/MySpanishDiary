@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Sundori';
+    src: url('/fonts/Sundori.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.buttonCard {
+  font-family: 'Sundori', sans-serif;
+  font-size: 5rem;             
+  color: #EAE0CC;
+  background-color: #4D6A6D;
+  padding: 16px;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 4px 6px #798478;
+}
+
+button:hover {
+    background-color: #798478;
+    transform: scale(1.1);
+}
