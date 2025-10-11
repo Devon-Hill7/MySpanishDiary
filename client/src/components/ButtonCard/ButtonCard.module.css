@@ -5,14 +5,17 @@
     font-style: normal;
 }
 
-.buttonCard {
-  font-family: 'Sundori', sans-serif;
-  font-size: 5rem;             
+@font-face {
+    font-family: 'Millaris';
+    src: url('/fonts/Millaris Personal Use Only.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.buttonCard {            
   color: #EAE0CC;
   background-color: #4D6A6D;
   padding: 16px;
-  width: 20rem;
-  height: 20rem;
   border-radius: 12px;
   cursor: pointer;
   text-align: center;
@@ -23,4 +26,25 @@
 button:hover {
     background-color: #798478;
     transform: scale(1.1);
+}
+
+.small {
+    font-family: 'Millaris', sans-serif;
+    font-size: 1.5rem;
+    width: 9rem;
+    height: 4rem;
+}
+
+.medium {
+    font-family: 'Sundori', sans-serif; 
+    font-size: 3rem;
+    width: 15rem;
+    height: 9rem;
+}
+
+.large {
+    font-family: 'Sundori', sans-serif;  
+    font-size: 5rem;
+    width: 20rem;
+    height: 20rem;
 }
