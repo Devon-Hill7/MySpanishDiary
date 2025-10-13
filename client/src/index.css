@@ -1,9 +1,31 @@
+@font-face {
+    font-family: 'Sundori';
+    src: url('/fonts/Sundori.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Millaris';
+    src: url('/fonts/Millaris Personal Use Only.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Handlee';
+    src: url('/fonts/Handlee-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
   overflow-x: hidden;  
+  overflow-y: hidden;
   box-sizing: border-box;
 }
 
@@ -98,6 +120,83 @@ html, body {
 
 .homeBtn-container {
   position: fixed;
-  top: 1rem;
+  bottom: 1rem;
   left: 1rem;
+}
+
+.entriesPage-background{
+    position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;           
+  height: 100vh;    
+   background: linear-gradient(
+    to left,
+    #EAE0CC 0% 5%,
+    #C9ADA1 5% 7%,
+    #A0A083 7% 9%,
+    #798478 9% 11%,
+    #4D6A6D 11% 13%,
+    #EAE0CC 13% 100%
+  );
+  z-index: -1;
+}
+
+
+.promptTitle {
+  font-family: 'Millaris', sans-serif;
+  font-size: 2rem;
+  color: #2B2B2B;
+  margin: 0;
+
+  align-items: center;
+  text-align: center;
+  padding: 8px;
+}
+
+.writing-section {
+  display: flex;
+  flex: 0 0 70%;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+
+  
+}
+
+.grammarLesson-section {
+  display: flex;
+  flex: 0 0 30%;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: #A0A083;
+}
+
+.entryPage {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;           
+  height: 100vh;
+  background-color: #EAE0CC;
+}
+
+
+.entryTextArea {
+  width: 99%;
+  flex: 1;
+  background-color: #EAE0CC;
+  background-image:
+    linear-gradient(to bottom, #4D6A6D 1px, transparent 1px);
+  background-size: 100% 2rem;
+  background-position: left top;
+  border: none;
+  outline: none;
+  font-family: 'Handlee', sans-serif;
+  font-size: 2rem;
+  color: #2B2B2B;
+  line-height: 2rem;
+  overflow-y: hidden;
+  resize: none;
 }

@@ -1,16 +1,4 @@
-@font-face {
-    font-family: 'Sundori';
-    src: url('/fonts/Sundori.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
 
-@font-face {
-    font-family: 'Millaris';
-    src: url('/fonts/Millaris Personal Use Only.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
 
 .buttonCard {            
   color: #EAE0CC;

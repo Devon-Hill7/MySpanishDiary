@@ -1,7 +1,13 @@
+import { useEffect, useState } from "react"
+import ButtonCard from "../components/ButtonCard/ButtonCard"
+import TitleLabel from "../components/TitleLabel/TitleLabel"
+import HomeButton from "../components/HomeButton/HomeButton";
 function Entries() {
     return (
-        <div className="entries-page">
-            Entries Page
+        <div className="main-page">
+            <div className="entriesPage-background"></div>
+            <div className="homeBtn-container"><HomeButton /></div>
+            <TitleLabel title="My Entries" />
         </div>
     )
 }
