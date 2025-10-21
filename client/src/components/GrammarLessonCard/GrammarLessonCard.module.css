@@ -1,0 +1,36 @@
+.lesson-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    background-color: #C9ADA1;
+    border: solid 2px #798478;
+    min-width: 93%;
+    gap: 1rem;
+}
+
+.grammarCardTitle {
+    font-family: 'Millaris', sans-serif;
+    font-size: 2rem;
+    color: #2B2B2B;
+}
+
+.correctionsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    justify-content: center;
+    font-family: 'Handlee', 'sans-serif';
+    font-size: 1.5rem;
+    color: #2B2B2B;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.videoLesson {
+    width: 100%;
+    border: solid 2px #798478;
+}

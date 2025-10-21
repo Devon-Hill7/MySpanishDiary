@@ -1,22 +1,33 @@
 @font-face {
-    font-family: 'Sundori';
-    src: url('/fonts/Sundori.ttf') format('truetype');
+    font-family: 'SuperDream';
+    src: url('/fonts/Super Dream.ttf') format('woff2');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sundori';
+    src: url('/fonts/Sundori.ttf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Millaris';
-    src: url('/fonts/Millaris Personal Use Only.ttf') format('truetype');
+    src: url('/fonts/Millaris Personal Use Only.ttf') format('woff2');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Handlee';
-    src: url('/fonts/Handlee-Regular.ttf') format('truetype');
+    src: url('/fonts/Handlee-Regular.ttf') format('woff2');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 html, body {
@@ -27,14 +38,14 @@ html, body {
   overflow-x: hidden;  
   overflow-y: hidden;
   box-sizing: border-box;
+  min-width: 1000px;
 }
 
 .button-container {
   display: flex;
   justify-content: center;
-  gap: 10rem;
-  flex-wrap: wrap;
-  padding: 16px;
+  gap: 2rem;
+  padding: 1rem;
   margin-top: auto;
 }
 
@@ -160,16 +171,17 @@ html, body {
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
-
-  
 }
 
 .grammarLesson-section {
   display: flex;
-  flex: 0 0 30%;
+  flex: 1;
   flex-direction: column;
   flex-wrap: wrap;
-  background-color: #A0A083;
+  border: solid;
+  border-color: #798478;
+  border-width: 4px;
+  overflow-x: auto;
 }
 
 .entryPage {
@@ -197,6 +209,41 @@ html, body {
   font-size: 2rem;
   color: #2B2B2B;
   line-height: 2rem;
-  overflow-y: hidden;
+  overflow-y: auto;
   resize: none;
+   background-attachment: local;
+}
+
+.grammarTitle {
+    font-family: 'SuperDream', sans-serif;
+    font-size: 3rem;
+    color: #2B2B2B;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.grammarLessons-container {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+    border-top: 2px solid #798478;
+    border-bottom: 2px solid #798478;
+    flex: 1;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #798478 transparent;
+}
+
+.grammarLessons-container::-webkit-scrollbar {
+  width: 8px;
+}
+.grammarLessons-container::-webkit-scrollbar-track {
+  background: none;
+}
+.grammarLessons-container::-webkit-scrollbar-thumb {
+  background-color: #798478;
+  border-radius: 8px;
 }

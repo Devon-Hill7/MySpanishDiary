@@ -31,11 +31,14 @@ public class GrammarLessonService {
 
     public List<Grammar_Lessons> curateLessons(List<RuleMatch> errors) {
         List<Grammar_Lessons> lessons = new ArrayList<>();
+        Grammar_Lessons template;
         for(RuleMatch error : errors) {
            Rules rule = ruleService.getRuleById(error.getRule().getId());
            if(rule != null) {
-                Grammar_Lessons lesson = getLessonByRule(rule);
-                if(lesson != null && !lessons.contains(lesson)) {
+                template = getLessonByRule(rule);
+                if(template != null) {
+                    Grammar_Lessons lesson = new Grammar_Lessons();
+                    setLessonInfo(lesson, template);
                     setErrorInfo(lesson, error);
                     lessons.add(lesson);
                 }
@@ -56,6 +59,11 @@ public class GrammarLessonService {
         lesson.setSuggestions(error.getSuggestedReplacements());
         lesson.setErrorStartPos(error.getFromPos());
         lesson.setErrorEndPos(error.getToPos());
+    }
+
+    private void setLessonInfo (Grammar_Lessons real, Grammar_Lessons temp) {
+        real.setTitle(temp.getTitle());
+        real.setVideoTitle(temp.getVideoTitle());
     }
 
 }
