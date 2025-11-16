@@ -69,6 +69,7 @@ public class Grammar_Lessons {
         return errorEndPos;
     }
 
+
     public void setVideoTitle(String videoTitle) {
         this.videoTitle = videoTitle;
     }
@@ -92,6 +93,7 @@ public class Grammar_Lessons {
     public void setErrorEndPos(int errorEndPos) {
         this.errorEndPos = errorEndPos;
     }
+
 
     
 }

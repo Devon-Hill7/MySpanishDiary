@@ -15,8 +15,10 @@ function Entry () {
             const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/grade`, {
                 text: entryText
             })
-            setApiResponse(res.data);
-            console.log(res.data);
+            if(res.data != null) {
+                setApiResponse(res.data);
+                console.log(res.data);
+            }
         } catch (err) {
             console.log(err)
         }
@@ -34,13 +36,24 @@ function Entry () {
             <div className="grammarLesson-section">
                 <h2 className="grammarTitle">Grammar Errors</h2>
                 <div className="grammarLessons-container">
-                   { apiResponse? (
+                   { (apiResponse && apiResponse.length > 0) ? (
                             apiResponse.map((error, index) => (
-                            <GrammarLessonCard key={index} title={error.title} incorrectSentence={error.incorrectSentence} suggestions={error.suggestions.slice(0, 3).join(" ")} videoTitle={error.videoTitle}/>
+                            <GrammarLessonCard 
+                            key={index} 
+                            title={error.title} 
+                            incorrectSentence={error.incorrectSentence} 
+                            suggestions={error.suggestions.slice(0, 3).join(", ")} 
+                            videoTitle={error.videoTitle} errorStart={error.errorStartPos} 
+                            errorEnd={error.errorEndPos} 
+                            text={entryText} 
+                            removeCard={() => {
+                                setApiResponse(prev => prev.filter((_, i) => i !== index));
+                                }
+                            }/>
                             ))
                         )
                     :
-                        (<span>there are no erros</span>)
+                        (<span className="noErrorsText">You have no errors! &#128077;</span>)
                     }
                 </div>
                 <div className="button-container">

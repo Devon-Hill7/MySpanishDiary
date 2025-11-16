@@ -247,3 +247,13 @@ html, body {
   background-color: #798478;
   border-radius: 8px;
 }
+
+.noErrorsText {
+    font-family: 'Millaris', sans-serif;
+    font-size: 2rem;
+    color: #2B2B2B;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    align-content: center;
+}
