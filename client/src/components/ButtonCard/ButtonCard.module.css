@@ -11,7 +11,7 @@
   box-shadow: 0 4px 6px #798478;
 }
 
-button:hover {
+.buttonCard:hover {
     background-color: #798478;
     transform: scale(1.1);
 }
@@ -35,4 +35,16 @@ button:hover {
     font-size: 5rem;
     width: 20rem;
     height: 20rem;
+}
+
+.disabledBtn {
+    background-color: #A9BFC1;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.disabledBtn:hover {
+    transform: none;
+    background-color: #A9BFC1;
 }

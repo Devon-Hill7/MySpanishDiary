@@ -32,7 +32,7 @@ function Prompts() {
             <TitleLabel title="Choose a prompt!" />
             <h2 className='promptText'>{prompt}</h2>
             <div className="button-container fixed-pos">
-                <ButtonCard text="Give me another!" clickEvent={fetchData} size="medium"/>
+                <ButtonCard text="Give me another!" clickEvent={fetchData} size="medium" disabled={false}/>
                 <ButtonCard text="I like this one!" linkTo="/entry" size="medium" state={prompt}/>
             </div>
         </div>

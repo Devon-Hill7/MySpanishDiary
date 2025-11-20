@@ -5,7 +5,6 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Prompts from './pages/Prompts'
-import GrammarLesson from './pages/GrammarLesson'
 import Entry from './pages/Entry'
 import Entries from './pages/Entries'
 import './App.css'
@@ -17,7 +16,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/prompts" element={<Prompts />} />
-        <Route path="/grammar-lesson" element={<GrammarLesson />} />
         <Route path="/entry" element={<Entry />} />
         <Route path="/entries" element={<Entries />} />
       </Routes>

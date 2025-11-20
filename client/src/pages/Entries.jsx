@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react"
-import ButtonCard from "../components/ButtonCard/ButtonCard"
 import TitleLabel from "../components/TitleLabel/TitleLabel"
 import HomeButton from "../components/HomeButton/HomeButton";
 function Entries() {

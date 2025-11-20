@@ -10,8 +10,8 @@ function Home() {
       </div>
       <TitleLabel title="Home" />
       <div className="button-container">
-        <ButtonCard text="Create Entry" linkTo="/prompts" size="large" />
-        <ButtonCard text="My Entries" linkTo="/entries" size="large"/>
+        <ButtonCard text="Create Entry" linkTo="/prompts" size="large" disabled={false}/>
+        <ButtonCard text="My Entries" linkTo="/entries" size="large" disabled={false}/>
       </div>
     </div>
   );

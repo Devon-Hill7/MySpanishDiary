@@ -9,6 +9,9 @@ function Entry () {
     const [prompt, setPrompt] = useState(location.state);
     const [entryText, setEntryText] = useState("");
     const [apiResponse, setApiResponse] = useState(null);
+    const [submitBtnState, setSubmitBtnState] = useState(false);
+    const [checkBtnState, setCheckBtnState] = useState(false);
+
 
     const gradeEntry = async () => {
         try {
@@ -17,11 +20,24 @@ function Entry () {
             })
             if(res.data != null) {
                 setApiResponse(res.data);
-                console.log(res.data);
+                determineSubmitBtnState(res.data, entryText, true);
+                setCheckBtnState(false);
             }
+
+            console.log(apiResponse);
+            console.log(submitBtnState);
         } catch (err) {
             console.log(err)
         }
+    }
+
+    const determineSubmitBtnState = (response, text, checked) => {
+        const resLength = response ? response.length : 0;
+        const textLength = text ? text.length : entryText.length;
+        if(textLength > 0 && resLength === 0 && checked) {
+            setSubmitBtnState(true);  
+        }
+        else (setSubmitBtnState(false));
     }
 
 
@@ -31,7 +47,22 @@ function Entry () {
             <div className="homeBtn-container"><HomeButton /></div>
             <div className="writing-section">
                  <span className="promptTitle">{prompt}</span>
-                 <textarea className="entryTextArea" placeholder="Escribe tu anotación aquí..." value={entryText}  onChange={(e) => setEntryText(e.target.value)} ></textarea>
+                 <textarea 
+                    className="entryTextArea" 
+                    placeholder="Escribe tu anotación aquí..." 
+                    value={entryText}  
+                    onChange={(e) => {
+                        if(e.target.value.length > 0) {
+                            setCheckBtnState(true);
+                            determineSubmitBtnState(apiResponse, e.target.value, false);
+                        }
+                        else {
+                            setCheckBtnState(false);  
+                            setSubmitBtnState(false);
+                        };
+                        setEntryText(e.target.value);
+                        }} >
+                    </textarea>
             </div>
             <div className="grammarLesson-section">
                 <h2 className="grammarTitle">Grammar Errors</h2>
@@ -47,9 +78,16 @@ function Entry () {
                             errorEnd={error.errorEndPos} 
                             text={entryText} 
                             removeCard={() => {
-                                setApiResponse(prev => prev.filter((_, i) => i !== index));
+                                setApiResponse(prev => {
+                                    const updated = prev.filter((_, i) => i !== index)
+                                    determineSubmitBtnState(updated, entryText, true);
+                                    return updated;
+                                });
+                                console.log(apiResponse);
+                                console.log(submitBtnState);
                                 }
-                            }/>
+                            }
+                            />
                             ))
                         )
                     :
@@ -57,8 +95,8 @@ function Entry () {
                     }
                 </div>
                 <div className="button-container">
-                    <ButtonCard text="Check" size="small" clickEvent={gradeEntry} />
-                    <ButtonCard text="Submit" size="small" />
+                    <ButtonCard text="Check" size="small" clickEvent={gradeEntry} disabled={!checkBtnState}/>
+                    <ButtonCard text="Submit" size="small" clickEvent={gradeEntry} disabled={!submitBtnState}/>
                 </div>
             </div>
         </div>

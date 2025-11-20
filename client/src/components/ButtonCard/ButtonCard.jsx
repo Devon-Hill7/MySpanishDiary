@@ -1,11 +1,11 @@
 import styles from "./ButtonCard.module.css"
 import { Link } from "react-router-dom"
 
-function ButtonCard({linkTo, text, size, clickEvent, state}) {
+function ButtonCard({linkTo, text, size, clickEvent, state, disabled}) {
     
     if (clickEvent) {
         return (
-            <button className={`${styles.buttonCard} ${styles[size]}`} onClick={clickEvent}>{text}</button>
+            <button className={`${styles.buttonCard} ${styles[size]} ${disabled ? styles.disabledBtn : ""}`} disabled={disabled} onClick={clickEvent}>{text}</button>
         );
     }
 
