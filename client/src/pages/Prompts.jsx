@@ -5,13 +5,14 @@ import HomeButton from "../components/HomeButton/HomeButton";
 
 function Prompts() {
         const [prompt, setPrompt] = useState('')
+        const [promptId, setPromptId] = useState(null);
 
     const fetchData = async () => {
         try {
             const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/prompt`);
             const data = await res.json();
             setPrompt(data.text);
-            console.log(prompt)
+            setPromptId(data.id);
         } catch (err) {
             console.log(err)
             setPrompt("Error fetching prompt");
@@ -33,7 +34,7 @@ function Prompts() {
             <h2 className='promptText'>{prompt}</h2>
             <div className="button-container fixed-pos">
                 <ButtonCard text="Give me another!" clickEvent={fetchData} size="medium" disabled={false}/>
-                <ButtonCard text="I like this one!" linkTo="/entry" size="medium" state={prompt}/>
+                <ButtonCard text="I like this one!" linkTo="/entry" size="medium" state={{id: promptId, prompt: prompt }}/>
             </div>
         </div>
     )

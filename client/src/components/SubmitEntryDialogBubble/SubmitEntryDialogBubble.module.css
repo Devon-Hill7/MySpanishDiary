@@ -1,0 +1,24 @@
+.submitEntryDialogBubbleContainer {
+    background-color: #C9ADA1;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    border-radius: 1rem;
+    padding: 2rem;
+    font-family: "Millaris", sans-serif;
+    border: 0.25rem solid #4D6A6D;
+    box-shadow: 0 4px 6px #798478;
+}
+
+.popupOverlay {
+    position: fixed;
+    inset: 0; /* top: 0; bottom: 0; left: 0; right: 0 */
+    background: rgba(0, 0, 0, 0.45); /* dim the background */
+    z-index: 999; /* behind the popup but above everything else */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto; /* make the overlay catch clicks */
+}

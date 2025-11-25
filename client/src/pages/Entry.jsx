@@ -3,14 +3,18 @@ import { useState } from "react"
 import HomeButton from "../components/HomeButton/HomeButton";
 import ButtonCard from "../components/ButtonCard/ButtonCard";
 import GrammarLessonCard from "../components/GrammarLessonCard/GrammarLessonCard";
+import SubmitEntryDialogBubble from "../components/SubmitEntryDialogBubble/SubmitEntryDialogBubble";
 import axios from "axios";
+
 function Entry () {
     const location = useLocation();
-    const [prompt, setPrompt] = useState(location.state);
+    const [promptId, setPromptId] = useState(location.state.id);
+    const [prompt, setPrompt] = useState(location.state.prompt);
     const [entryText, setEntryText] = useState("");
     const [apiResponse, setApiResponse] = useState(null);
     const [submitBtnState, setSubmitBtnState] = useState(false);
     const [checkBtnState, setCheckBtnState] = useState(false);
+    const [submitEntryResponseCode, setSubmitEntryResponseCode] = useState(null);
 
 
     const gradeEntry = async () => {
@@ -40,6 +44,22 @@ function Entry () {
         else (setSubmitBtnState(false));
     }
 
+    const submitEntry = async () => {
+        try {
+            const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/entries`, {
+                promptId: promptId,
+                text: entryText,
+                date: new Date().toISOString(),
+                userId: 1 // Placeholder until auth is implemented
+            })
+
+            setSubmitEntryResponseCode(res.status);
+        } catch (err) {
+            console.log(err)
+            setSubmitEntryResponseCode(err.response.status);
+        }
+        
+    }
 
     return (
         <div className='entryPage'>
@@ -96,9 +116,10 @@ function Entry () {
                 </div>
                 <div className="button-container">
                     <ButtonCard text="Check" size="small" clickEvent={gradeEntry} disabled={!checkBtnState}/>
-                    <ButtonCard text="Submit" size="small" clickEvent={gradeEntry} disabled={!submitBtnState}/>
+                    <ButtonCard text="Submit" size="small" clickEvent={submitEntry} disabled={!submitBtnState}/>
                 </div>
             </div>
+            <SubmitEntryDialogBubble responseCode={submitEntryResponseCode} clickEvent={()=>setSubmitEntryResponseCode(null)}/>
         </div>
     )
 }
