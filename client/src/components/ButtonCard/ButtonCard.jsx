@@ -1,7 +1,7 @@
 import styles from "./ButtonCard.module.css"
 import { Link } from "react-router-dom"
 
-function ButtonCard({linkTo, text, size, clickEvent, state, disabled}) {
+function ButtonCard({linkTo, text, size, clickEvent, state, disabled, entriesBtn}) {
     
     if (clickEvent) {
         return (
@@ -16,11 +16,19 @@ function ButtonCard({linkTo, text, size, clickEvent, state, disabled}) {
             </Link>
         );
     }
+
+    if (entriesBtn) {
+         return (
+            <Link to={linkTo}>
+                <button className={`${styles.buttonCard} ${styles[size]} ${styles.entriesBtn}`}>{text}</button>
+            </Link>
+         );
+    }
     
     return (
-    <Link to={linkTo}>
-        <button className={`${styles.buttonCard} ${styles[size]}`}>{text}</button>
-    </Link>
+        <Link to={linkTo}>
+            <button className={`${styles.buttonCard} ${styles[size]}`}>{text}</button>
+        </Link>
 );
 }
 
