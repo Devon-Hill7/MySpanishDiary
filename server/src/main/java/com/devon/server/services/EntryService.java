@@ -42,4 +42,10 @@ public class EntryService {
         return false;
     }
 
+    public boolean updateEntryFromRequest(Long id, EntryRequest request) {
+        Entries existingEntry = entryRepository.findById(id).orElseThrow(() -> new RuntimeException("Entry not found"));
+        existingEntry.setText(request.getText());
+        entryRepository.save(existingEntry);
+        return true;
+    }
 }

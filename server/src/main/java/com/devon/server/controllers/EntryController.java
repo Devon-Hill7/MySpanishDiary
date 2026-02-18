@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.devon.server.services.*;
@@ -35,6 +36,11 @@ public class EntryController {
     @PostMapping("/entries")
     public boolean addEntry(@RequestBody EntryRequest request) {
         return entryService.addEntryFromRequest(request);
+    }
+
+    @PutMapping("/entries/{id}")
+    public boolean updateEntry(@PathVariable Long id, @RequestBody EntryRequest request) {
+        return entryService.updateEntryFromRequest(id, request);
     }
 
     

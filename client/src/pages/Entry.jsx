@@ -10,7 +10,8 @@ function Entry () {
     const location = useLocation();
     const [promptId, setPromptId] = useState(location.state.id);
     const [prompt, setPrompt] = useState(location.state.prompt);
-    const [entryText, setEntryText] = useState("");
+    const [entryText, setEntryText] = useState(location.state.text || "");
+    const [entryId, setEntryId] = useState(location.state.entryId || null);
     const [apiResponse, setApiResponse] = useState(null);
     const [submitBtnState, setSubmitBtnState] = useState(false);
     const [checkBtnState, setCheckBtnState] = useState(false);
@@ -46,16 +47,27 @@ function Entry () {
 
     const submitEntry = async () => {
         try {
-            const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/entries`, {
+            let res;
+            if(entryId) {
+                res = await axios.put(`${import.meta.env.VITE_API_BASE_URL}/entries/${entryId}`, {
                 promptId: promptId,
                 text: entryText,
                 date: new Date().toISOString(),
                 userId: 1 // Placeholder until auth is implemented
-            })
+                });
+            }
+            else {
+                res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/entries`, {
+                promptId: promptId,
+                text: entryText,
+                date: new Date().toISOString(),
+                userId: 1 // Placeholder until auth is implemented
+                })
+            }
 
             setSubmitEntryResponseCode(res.status);
         } catch (err) {
-            console.log(err)
+            console.log("This is the error:",err)
             setSubmitEntryResponseCode(err.response.status);
         }
         
