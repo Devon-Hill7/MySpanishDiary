@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.devon.server.dtos.EntryRequest;
 import com.devon.server.entities.Entries;
 
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "${frontend.url}")
 @RestController
 public class EntryController {
 
