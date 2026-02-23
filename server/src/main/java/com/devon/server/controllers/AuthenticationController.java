@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import com.devon.server.dtos.LoginRequest;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@CrossOrigin(origins = "${frontend.url}")
 @RestController
 public class AuthenticationController {
 

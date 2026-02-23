@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.devon.server.entities.Grammar_Lessons;
 
 @Repository
-public interface GrammarLessonRepository extends JpaRepository<Grammar_Lessons, String> {
+public interface GrammarLessonRepository extends JpaRepository<Grammar_Lessons, Integer> {
     
 }
