@@ -3,7 +3,6 @@ package com.devon.server.controllers;
 import org.springframework.web.bind.annotation.RestController;
 import com.devon.server.services.AuthenticationService;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import com.devon.server.dtos.LoginRequest;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -17,7 +16,7 @@ public class AuthenticationController {
     }
     
     @PostMapping("/auth/login")
-    public boolean login(@RequestBody LoginRequest request) {
+    public String login(@RequestBody LoginRequest request) {
         return authenticationService.login(request);
     }
 
