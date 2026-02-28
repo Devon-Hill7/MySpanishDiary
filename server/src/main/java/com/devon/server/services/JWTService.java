@@ -23,7 +23,7 @@ import io.jsonwebtoken.Claims;
 public class JWTService {
 
 
-    private String secretKey = "";
+    private String secretKey = "xZOgSXjbqMxmNFJFGXG7aQeZ9IAcmX859349ghyaA1k";
 
     public JWTService() {
         try {
@@ -87,4 +87,7 @@ public class JWTService {
     private Date extractExpiration(String token) {
         return extractClaim(token, Claims::getExpiration);
     }
+
+
 }
+

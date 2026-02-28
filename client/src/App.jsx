@@ -8,16 +8,17 @@ import Prompts from './pages/Prompts'
 import Entry from './pages/Entry'
 import Entries from './pages/Entries'
 import './App.css'
+import ProtectedRoute from './components/ProtectedRoute'
 function App() {
 
   return (
     <main className="App">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
         <Route path="/login" element={<Login />} />
-        <Route path="/prompts" element={<Prompts />} />
-        <Route path="/entry" element={<Entry />} />
-        <Route path="/entries" element={<Entries />} />
+        <Route path="/prompts" element={<ProtectedRoute><Prompts /></ProtectedRoute>} />
+        <Route path="/entry" element={<ProtectedRoute><Entry /></ProtectedRoute>} />
+        <Route path="/entries" element={<ProtectedRoute><Entries /></ProtectedRoute>} />
       </Routes>
     </main>
   )

@@ -2,21 +2,34 @@ import { useEffect, useState } from "react"
 import ButtonCard from "../components/ButtonCard/ButtonCard"
 import TitleLabel from "../components/TitleLabel/TitleLabel"
 import HomeButton from "../components/HomeButton/HomeButton";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 function Entries() {
     const [entries, setEntries] = useState([])
     const [prompt, setPrompt] = useState('')
     const [promptId, setPromptId] = useState(null);
+
+    let navigate = useNavigate();
     
     const fetchEntries = async () => {
         try {
-            const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/entries`);
-            const data = await res.json();
+            const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/entries`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`
+                }
+            });
+            const data = res.data;
             setEntries(data);
         } catch (err) {
-            console.log(err)
-            setEntries("Error fetching entries");
+            if(err.response?.status === 401) {
+                navigate("/login");
+            }
+            else {
+                console.log(err)
+                setEntries("Error fetching entries");
+            }
         }
 
     };

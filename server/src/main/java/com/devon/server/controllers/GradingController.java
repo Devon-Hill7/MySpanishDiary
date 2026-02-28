@@ -38,7 +38,6 @@ public class GradingController {
     public List<Grammar_Lessons> grade(@RequestBody GradingRequest request) throws Exception {
         List<RuleMatch> errors = gradingService.gradeText(request.getText());
         List<Grammar_Lessons> lessons = grammarLessonService.curateLessons(errors);
-        System.out.println("Lessons: " + lessons.toString());
         return lessons;
         
     }

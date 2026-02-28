@@ -2,13 +2,13 @@ package com.devon.server.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import java.util.Optional;
 
 import com.devon.server.entities.Users;
 
 @Repository
-public interface UserRepository extends JpaRepository<Users, Long> {
+public interface UserRepository extends JpaRepository<Users, Integer> {
     
-    Optional<Users> findByUsername(String username);
+    Users findByUsername(String username);
+
 
 }

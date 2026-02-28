@@ -10,6 +10,8 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import com.devon.server.services.JWTService;
+import java.util.Map;
+
 @Service
 public class AuthenticationService {
     
@@ -27,21 +29,27 @@ public class AuthenticationService {
         this.jwtService = jwtService;
     }
 
-    public String login(LoginRequest request) {
-        Authentication auth = authenticationManager.authenticate(
-            new UsernamePasswordAuthenticationToken(
-                request.getUsername(),
-                request.getPassword()
-            )
-        );
-
-        return auth.isAuthenticated() ? jwtService.generateToken(request.getUsername()) : null;
+    public Map<String, String> login(LoginRequest request) {
+        try {
+            Authentication auth = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                    request.getUsername(),
+                    request.getPassword()
+                )
+            );
+            System.out.println("Authenticated: " + auth.isAuthenticated());
+            return auth.isAuthenticated() ? Map.of("token", jwtService.generateToken(request.getUsername())) : null;
+        } catch (Exception e) {
+            System.out.println("Authentication failed for username: " + request.getUsername());
+            System.out.println("Error: " + e.getMessage());
+            return null;
+        }
     }
 
     public boolean register(LoginRequest request) {
         String username = request.getUsername();
 
-        Users user = userRepository.findByUsername(username).orElse(null);
+        Users user = userRepository.findByUsername(username);
 
        if (user != null) {
             return false;
@@ -53,7 +61,6 @@ public class AuthenticationService {
         Users newUser = new Users(username, hashedPassword);
         userRepository.save(newUser);
         return true;
-        
 
     }  
     

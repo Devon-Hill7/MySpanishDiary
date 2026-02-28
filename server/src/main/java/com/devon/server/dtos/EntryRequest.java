@@ -7,7 +7,7 @@ public class EntryRequest {
 
     private LocalDate date;
 
-    private Long userId;
+    private int userId;
 
     private Long promptId;
 
@@ -29,11 +29,11 @@ public class EntryRequest {
         this.date = date;
     }
 
-    public Long getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 

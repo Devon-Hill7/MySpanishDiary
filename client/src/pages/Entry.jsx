@@ -5,6 +5,7 @@ import ButtonCard from "../components/ButtonCard/ButtonCard";
 import GrammarLessonCard from "../components/GrammarLessonCard/GrammarLessonCard";
 import SubmitEntryDialogBubble from "../components/SubmitEntryDialogBubble/SubmitEntryDialogBubble";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Entry () {
     const location = useLocation();
@@ -17,12 +18,17 @@ function Entry () {
     const [checkBtnState, setCheckBtnState] = useState(false);
     const [submitEntryResponseCode, setSubmitEntryResponseCode] = useState(null);
 
+    let navigate = useNavigate();
 
     const gradeEntry = async () => {
         try {
             const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/grade`, {
                 text: entryText
-            })
+            }, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`
+                }
+            });
             if(res.data != null) {
                 setApiResponse(res.data);
                 determineSubmitBtnState(res.data, entryText, true);
@@ -32,7 +38,12 @@ function Entry () {
             console.log(apiResponse);
             console.log(submitBtnState);
         } catch (err) {
-            console.log(err)
+             if(err.response?.status === 401) {
+                navigate("/login");
+            }
+            else {
+                console.log(err)
+            }
         }
     }
 
@@ -47,13 +58,18 @@ function Entry () {
 
     const submitEntry = async () => {
         try {
+            const userId = await getUserId();
             let res;
             if(entryId) {
                 res = await axios.put(`${import.meta.env.VITE_API_BASE_URL}/entries/${entryId}`, {
                 promptId: promptId,
                 text: entryText,
                 date: new Date().toISOString(),
-                userId: 1 // Placeholder until auth is implemented
+                userId: userId
+                }, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    }
                 });
             }
             else {
@@ -61,8 +77,12 @@ function Entry () {
                 promptId: promptId,
                 text: entryText,
                 date: new Date().toISOString(),
-                userId: 1 // Placeholder until auth is implemented
-                })
+                userId: userId
+                }, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    }
+                });
             }
 
             setSubmitEntryResponseCode(res.status);
@@ -71,6 +91,19 @@ function Entry () {
             setSubmitEntryResponseCode(err.response.status);
         }
         
+    }
+
+    const getUserId = async () => {
+        try {
+            const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/auth/getUserId`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`
+                }
+            });
+            return res.data.userId;
+        } catch (err) {
+            console.log(err);
+        }
     }
 
     return (

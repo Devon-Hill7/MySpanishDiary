@@ -21,11 +21,6 @@ public class GradingService {
 
     public List<RuleMatch> gradeText(String text) throws Exception{
         List<RuleMatch> matches = langTool.check(text);
-        for (RuleMatch match : matches) {
-            System.out.println("Message: " + match.getMessage());
-            System.out.println("Error at: " + match.getFromPos() + " - " + match.getToPos());
-            System.out.println("Suggestions: " + match.getSuggestedReplacements());
-        }
         return matches;
     }
 

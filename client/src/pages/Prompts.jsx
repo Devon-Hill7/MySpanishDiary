@@ -2,20 +2,33 @@ import { useEffect, useState } from "react"
 import ButtonCard from "../components/ButtonCard/ButtonCard"
 import TitleLabel from "../components/TitleLabel/TitleLabel"
 import HomeButton from "../components/HomeButton/HomeButton";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Prompts() {
         const [prompt, setPrompt] = useState('')
         const [promptId, setPromptId] = useState(null);
 
+    let navigate = useNavigate();
+    
     const fetchData = async () => {
         try {
-            const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/prompt`);
-            const data = await res.json();
+            const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/prompt`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`
+                }
+            });
+            const data = res.data;
             setPrompt(data.text);
             setPromptId(data.id);
         } catch (err) {
-            console.log(err)
-            setPrompt("Error fetching prompt");
+            if(err.response?.status === 401) {
+                navigate("/login");
+            }
+            else {
+                console.log(err)
+                setPrompt("Error fetching prompt");
+            }
         }
 
     };

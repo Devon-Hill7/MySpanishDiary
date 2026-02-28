@@ -19,7 +19,7 @@ public class Users implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private int id;
 
     private String username;
 
@@ -48,7 +48,7 @@ public class Users implements UserDetails {
         this.lastEntryDate = lastEntryDate;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
@@ -78,11 +78,11 @@ public class Users implements UserDetails {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Users user = (Users) o;
-        return id != null && id.equals(user.id);
+        return id == user.id;
     }
 
     @Override
     public int hashCode() {
-        return id != null ? id.hashCode() : 0;
+        return Integer.hashCode(id);
     }
 }
