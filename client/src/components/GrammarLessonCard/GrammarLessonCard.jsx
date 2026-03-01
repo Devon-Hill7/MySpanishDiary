@@ -1,6 +1,5 @@
 import styles from "./GrammarLessonCard.module.css"
-
-function GrammarLessonCard({title, incorrectSentence, suggestions, videoTitle, errorStart, errorEnd, text, removeCard}) {
+function GrammarLessonCard({title, incorrectSentence, suggestions, videoId, errorStart, errorEnd, text, removeCard}) {
   
   const errorSentenceStartIndex = text.indexOf(incorrectSentence);
   const relativeErrorStart = errorStart - errorSentenceStartIndex;
@@ -18,7 +17,7 @@ function GrammarLessonCard({title, incorrectSentence, suggestions, videoTitle, e
 
 
 
-  if(videoTitle) {
+  if(videoId) {
     return (
       <div className={styles['lesson-card']}>
         <button className={styles.grammarLessonCloseBtn} onClick={removeCard}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 6L6 18M6 6l12 12"/></svg></button>
@@ -33,9 +32,12 @@ function GrammarLessonCard({title, incorrectSentence, suggestions, videoTitle, e
                 <span>{suggestions}</span>
             </div>
           </div>
-          <video className={styles.videoLesson} controls>
-            <source src={`../../../public/videos/${videoTitle}`} type="video/mp4"/>
-          </video>
+          <iframe
+            src={`https://www.youtube.com/embed/${videoId}`}
+            className={styles.videoLesson}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
       </div>
     )
   }

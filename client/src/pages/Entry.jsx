@@ -139,7 +139,8 @@ function Entry () {
                             title={error.title} 
                             incorrectSentence={error.incorrectSentence} 
                             suggestions={error.suggestions.slice(0, 3).join(", ")} 
-                            videoTitle={error.videoTitle} errorStart={error.errorStartPos} 
+                            videoId={error.videoTitle?.split("v=")[1]?.split("&")[0]} 
+                            errorStart={error.errorStartPos} 
                             errorEnd={error.errorEndPos} 
                             text={entryText} 
                             removeCard={() => {
