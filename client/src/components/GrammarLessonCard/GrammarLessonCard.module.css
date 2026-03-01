@@ -14,8 +14,8 @@
 }
 
 .grammarCardTitle {
-    font-family: 'Millaris', sans-serif;
-    font-size: 2rem;
+    font-family: 'Chicle', sans-serif;
+    font-size: 3rem;
     color: #2B2B2B;
 }
 
@@ -44,8 +44,8 @@
 
 .grammarCardSubtitle {
     font-weight: bold;
-    font-size: 1.2rem;
-    font-family: 'Millaris', sans-serif;
+    font-size: 2rem;
+    font-family: 'Chicle', sans-serif;
 }
 
 .grammarLessonCloseBtn {

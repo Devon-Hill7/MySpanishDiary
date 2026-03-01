@@ -1,22 +1,22 @@
 @font-face {
-    font-family: 'SuperDream';
-    src: url('/fonts/Super Dream.ttf') format('woff2');
+    font-family: 'BagelFatOne';
+    src: url('/fonts/BagelFatOne-Regular.ttf') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Sundori';
-    src: url('/fonts/Sundori.ttf') format('woff2');
+    font-family: 'Coiny';
+    src: url('/fonts/Coiny-Regular.ttf') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Millaris';
-    src: url('/fonts/Millaris Personal Use Only.ttf') format('woff2');
+    font-family: 'Chicle';
+    src: url('/fonts/Chicle-Regular.ttf') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -71,7 +71,7 @@ html, body {
 
 
 .nameplate {
-  font-family: 'Sundori', sans-serif;
+  font-family: 'Coiny', sans-serif;
   font-size: 2rem;             
   color: #2B2B2B;
   margin: 0;
@@ -116,8 +116,8 @@ html, body {
 
 
 .promptText {
-  font-family: 'Millaris', sans-serif;
-  font-size: 4rem;
+  font-family: 'Chicle', sans-serif;
+  font-size: 5rem;
   color: #2B2B2B;
   text-align: center;
   margin-top: auto;
@@ -163,8 +163,8 @@ html, body {
 }
 
 .promptTitle {
-  font-family: 'Millaris', sans-serif;
-  font-size: 2rem;
+  font-family: 'Chicle', sans-serif;
+  font-size: 2.5rem;
   color: #2B2B2B;
   margin: 0;
 
@@ -223,7 +223,7 @@ html, body {
 }
 
 .grammarTitle {
-    font-family: 'SuperDream', sans-serif;
+    font-family: 'BagelFatOne', sans-serif;
     font-size: 3rem;
     color: #2B2B2B;
     margin: 20px 0;
@@ -257,8 +257,8 @@ html, body {
 }
 
 .noErrorsText {
-    font-family: 'Millaris', sans-serif;
-    font-size: 2rem;
+    font-family: 'Chicle', sans-serif;
+    font-size: 3rem;
     color: #2B2B2B;
     text-align: center;
     width: 100%;

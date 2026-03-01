@@ -18,21 +18,21 @@
 
 
 .small {
-    font-family: 'Millaris', sans-serif;
-    font-size: 1.5rem;
+    font-family: 'Chicle', sans-serif;
+    font-size: 2rem;
     width: 9rem;
     height: 4rem;
 }
 
 .medium {
-    font-family: 'Sundori', sans-serif; 
-    font-size: 3rem;
+    font-family: 'Coiny', sans-serif; 
+    font-size: 2rem;
     width: 15rem;
     height: 9rem;
 }
 
 .large {
-    font-family: 'Sundori', sans-serif;  
+    font-family: 'Coiny', sans-serif;  
     font-size: 5rem;
     width: 20rem;
     height: 20rem;
