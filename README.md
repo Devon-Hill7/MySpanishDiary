@@ -3,9 +3,7 @@
 A full-stack web app that lets users practice Spanish writing and receive real-time grammar feedback with linked learning resources.
 
 ## Demo
-Live demo: https://your-app-url.com
-
-![Screenshot](./screenshots/dashboard.png)
+Will add screenshots/GIFs soon
 
 ## Why I Built This
 I wanted a consistent way to practice writing in Spanish, but most language-learning tools focus on reading or multiple-choice exercises rather than free-form writing. Corrections often lacked clear explanations.
