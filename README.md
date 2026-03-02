@@ -1,4 +1,4 @@
-# Spanish Grammar Diary
+# My Spanish Diary
 
 A full-stack web app that lets users practice Spanish writing and receive real-time grammar feedback with linked learning resources.
 
