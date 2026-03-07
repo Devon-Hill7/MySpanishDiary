@@ -30,20 +30,13 @@ public class AuthenticationService {
     }
 
     public Map<String, String> login(LoginRequest request) {
-        try {
-            Authentication auth = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                    request.getUsername(),
-                    request.getPassword()
-                )
-            );
-            System.out.println("Authenticated: " + auth.isAuthenticated());
-            return auth.isAuthenticated() ? Map.of("token", jwtService.generateToken(request.getUsername())) : null;
-        } catch (Exception e) {
-            System.out.println("Authentication failed for username: " + request.getUsername());
-            System.out.println("Error: " + e.getMessage());
-            return null;
-        }
+        Authentication auth = authenticationManager.authenticate(
+            new UsernamePasswordAuthenticationToken(
+                request.getUsername(),
+                request.getPassword()
+            )
+        );
+        return Map.of("token", jwtService.generateToken(auth.getName()));
     }
 
     public boolean register(LoginRequest request) {

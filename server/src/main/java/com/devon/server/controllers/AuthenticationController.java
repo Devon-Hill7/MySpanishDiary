@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.devon.server.dtos.LoginRequest;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.devon.server.services.JWTService;
 import com.devon.server.services.UserService;
@@ -25,9 +28,15 @@ public class AuthenticationController {
     }
     
     @PostMapping("/auth/login")
-    public Map<String, String> login(@RequestBody LoginRequest request) {
-        return authenticationService.login(request);
-    }
+    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
+        try {
+            Map<String, String> response = authenticationService.login(request);
+            return ResponseEntity.ok(response);
+        } catch (BadCredentialsException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(Map.of("error", "Invalid credentials"));
+        }
+}
 
     @PostMapping("/auth/register")
     public boolean register(@RequestBody LoginRequest request) {
