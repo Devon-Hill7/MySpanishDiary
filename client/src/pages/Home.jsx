@@ -21,9 +21,6 @@ function Home() {
         if(err.response?.status === 401) {
           navigate("/login");
         }
-        else {
-          console.log(err);
-        }
       }
     }
 

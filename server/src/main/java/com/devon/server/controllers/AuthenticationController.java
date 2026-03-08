@@ -39,22 +39,41 @@ public class AuthenticationController {
 }
 
     @PostMapping("/auth/register")
-    public boolean register(@RequestBody LoginRequest request) {
-        return authenticationService.register(request);
+    public ResponseEntity<?> register(@RequestBody LoginRequest request) {
+        boolean isRegistered = authenticationService.register(request);
+        if (isRegistered) {
+            return ResponseEntity.ok(Map.of("message", "Registration successful"));
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("error", "Registration Failed"));
+        }
     }
 
     @GetMapping("/auth/me")
-    public Map<String, String> extractUsername(@RequestHeader("Authorization") String authHeader) {
+    public ResponseEntity<?> extractUsername(@RequestHeader("Authorization") String authHeader) {
         String token = authHeader.replace("Bearer ", "");
-        return Map.of("username", jwtService.extractUsername(token));
+        Map<String, String> response;
+        try {
+            response = Map.of("username", jwtService.extractUsername(token));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(Map.of("error", "Invalid token"));
+        }
+
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/auth/getUserId")
-    public Map<String, Integer> getUserId(@RequestHeader("Authorization") String authHeader) {
+    public ResponseEntity<?> getUserId(@RequestHeader("Authorization") String authHeader) {
         String token = authHeader.replace("Bearer ", "");
-        Map<String, String> usernameMap = Map.of("username", jwtService.extractUsername(token));
-        String username = usernameMap.get("username");
-        return Map.of("userId", userService.getUserByUsername(username).getId());
+        String username;
+        try {
+            Map<String, String> usernameMap = Map.of("username", jwtService.extractUsername(token));
+            username = usernameMap.get("username");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(Map.of("error", "Invalid token"));
+        }
+
+        return ResponseEntity.ok(Map.of("userId", userService.getUserByUsername(username).getId()));
     }
-    
 }

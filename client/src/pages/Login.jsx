@@ -42,12 +42,10 @@ function Login() {
             setErrorMessage("Registration successful! You can now log in.");
         } catch (error) {
             if (error.response?.status === 400) {
-                setErrorMessage("Registration failed. Username may already be taken.");
-                console.log(error);
+                setErrorMessage("Registration failed");
             }
             else {
                 setErrorMessage("An error occurred during registration. Please try again.");
-                console.log(error);
             }
         }
     }
