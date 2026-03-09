@@ -34,7 +34,7 @@ This app lets me practice Spanish daily while connecting grammar mistakes to tar
 **Backend:** Java, Spring Boot, Spring Security  
 **Database:** PostgreSQL  
 **Auth:** JWT  
-**Other:** REST APIs, Docker  
+**Other:** REST APIs 
 **Grammar Analysis:** LanguageTool
 
 ## How It Works
