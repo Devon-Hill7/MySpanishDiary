@@ -2,13 +2,21 @@
 
 A full-stack web app that lets users practice Spanish writing and receive real-time grammar feedback with linked learning resources.
 
-## Demo
-Will add screenshots/GIFs soon
+![Java](https://img.shields.io/badge/Java-17-blue)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.5-green)
+![React](https://img.shields.io/badge/React-18-61dafb)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue)
+![JWT](https://img.shields.io/badge/Auth-JWT-orange)
+
+## 🎥 Demo
+
+**Watch a video demo:** [Link to your Loom/YouTube video]
+
+**Screenshots:**
 
 ## Why I Built This
 I wanted a consistent way to practice writing in Spanish, but most language-learning tools focus on reading or multiple-choice exercises rather than free-form writing. Corrections often lacked clear explanations.
-
-This app lets me practice Spanish daily while connecting grammar mistakes to targeted lessons, helping reinforce *why* each correction is needed.
+This app lets me practice Spanish daily while connecting grammar mistakes to targeted lessons, helping reinforce why each correction is needed.
 
 ## Features
 - User registration and secure sign-in with private, user-specific entries
@@ -95,3 +103,10 @@ This app lets me practice Spanish daily while connecting grammar mistakes to tar
 - **Mistake pattern tracking** – Show users their most common grammar mistakes over time to help identify areas for improvement.  
 - **Autosave entries** – Save drafts automatically so users don’t lose progress if the app is closed accidentally.  
 - **Testing & edge case handling** – Add unit and integration tests to catch potential errors and improve reliability.
+
+## Author
+Devon Hill
+
+GitHub: Devon-Hill7
+LinkedIn: https://www.linkedin.com/in/devon-hill-3958431b8/
+Email: devonhill7@outlook.com
