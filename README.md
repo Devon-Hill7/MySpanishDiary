@@ -70,7 +70,7 @@ This app lets me practice Spanish daily while connecting grammar mistakes to tar
 6. **Submitting and Saving Entries**
    - Once an entry passes grammar checking, the user can submit it.
    - The backend saves the entry prompt, entry text, and associated user as a single Entry record in the database.
-   - Entries are saved only on submission, keeping drafts separate from finalized entries.
+   - Entries are saved only on submission
 
 7. **Viewing Past Entries**
    - When a user navigates to **My Entries**, the backend retrieves all entries associated with that user’s ID.
