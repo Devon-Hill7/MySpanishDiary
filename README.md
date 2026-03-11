@@ -1,6 +1,6 @@
 # My Spanish Diary
 
-A full-stack web app that lets users practice Spanish writing and receive real-time grammar feedback with linked learning resources.
+A full-stack web app that lets users practice Spanish writing and receive grammar feedback with linked learning resources.
 
 ![Java](https://img.shields.io/badge/Java-17-blue?style=for-the-badge&logo=java&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.5-green?style=for-the-badge&logo=springboot&logoColor=white)
