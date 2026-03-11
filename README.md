@@ -8,11 +8,14 @@ A full-stack web app that lets users practice Spanish writing and receive real-t
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-17-blue?style=for-the-badge&logo=postgresql&logoColor=white)
 ![JWT](https://img.shields.io/badge/Auth-JWT-orange?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
 
-## 🎥 Demo
+## Demo
 
-**Watch a video demo:** [![Demo](./screenshots/Screenshot 2026-03-10 201239.png)](https://www.loom.com/share/a05d91b4327742d1bdc393228ef37571)
+<p align="center">
+  <a href="https://www.loom.com/share/a05d91b4327742d1bdc393228ef37571">
+    <img src="./screenshots/demo-screenshot.png" width="600">
+  </a>
+</p>
 
-**Screenshots:**
 
 ## Why I Built This
 I wanted a consistent way to practice writing in Spanish, but most language-learning tools focus on reading or multiple-choice exercises rather than free-form writing. Corrections often lacked clear explanations.
