@@ -21,6 +21,70 @@ A full-stack web app that lets users practice Spanish writing and receive gramma
 I wanted a consistent way to practice writing in Spanish, but most language-learning tools focus on reading or multiple-choice exercises rather than free-form writing. Corrections often lacked clear explanations.
 This app lets me practice Spanish daily while connecting grammar mistakes to targeted lessons, helping reinforce why each correction is needed.
 
+## Tech Stack
+**Frontend:** React, JavaScript, CSS  
+**Backend:** Java, Spring Boot, Spring Security  
+**Database:** PostgreSQL  
+**Auth:** JWT  
+**Other:** REST APIs 
+**Grammar Analysis:** LanguageTool
+
+## Quick Start
+  Make sure the following are installed:
+  - Java 17+
+  - Node.js 18+
+  - PostgreSQL
+  - Maven
+  - Git
+### 1. Clone the Repository
+  ```bash
+git clone https://github.com/Devon-Hill7/MySpanishDiary.git
+cd MySpanishDiary
+```
+### 2. Set up the database
+Create a PostgreSQL database:
+```bash
+CREATE DATABASE spanish_diary
+```
+Update the database credentials in:
+```bash
+backend/src/main/resources/application.properties
+```
+Change the following to your credentials:
+```bash
+spring.datasource.url=jdbc:postgresql://localhost:5432/your_database_name
+spring.datasource.username=your_username
+spring.datasource.password=your_password
+```
+### 3. Start the backend
+```bash
+cd server
+mvn spring-boot:run
+```
+Backend runs on: 
+```bash
+http://localhost:8080
+```
+### 4. Start the frontend
+```bash
+cd client
+npm install
+npm run dev
+```
+Frontend runs on:
+```bash
+http://localhost:5173
+```
+
+### 5. Open the app
+
+Visit:
+```bash
+http://localhost:5173
+```
+
+
+
 ## Features
 - User registration and secure sign-in with private, user-specific entries
 - Choose a writing prompt and create Spanish diary entries for open-ended practice
@@ -31,14 +95,6 @@ This app lets me practice Spanish daily while connecting grammar mistakes to tar
 - Edit and update existing diary entries at any time
 - View all past entries on a dedicated My Entries page
 - All entries are private and visible only to the submitting user
-
-## Tech Stack
-**Frontend:** React, JavaScript, CSS  
-**Backend:** Java, Spring Boot, Spring Security  
-**Database:** PostgreSQL  
-**Auth:** JWT  
-**Other:** REST APIs 
-**Grammar Analysis:** LanguageTool
 
 ## How It Works
 
